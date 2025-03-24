@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #1a1a2e 0%, #16213e 100%);
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 300px;
+    border: 4px solid #30475e;
+    margin: 20px auto;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3),
+                inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.dino {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    background-image: url(https://cdn.pixabay.com/photo/2020/04/10/10/23/dinosaur-5025092_1280.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.cactus {
+    width: 30px;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-image: url(https://cdn.pixabay.com/photo/2021/06/30/05/39/cactus-6375940_1280.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 20px 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    color: #4ecca3;
+}
+
+.score {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #4ecca3;
+    text-shadow: 0 0 5px rgba(78, 204, 163, 0.5);
+}
+
+.high-score {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #ff6b6b;
+    text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: #ff4444;
+    display: none;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 0 20px rgba(255, 68, 68, 0.3);
+}
+
+.instructions {
+    margin: 20px 0;
+    color: #4ecca3;
+    text-align: center;
+    line-height: 1.5;
+    text-shadow: 0 0 5px rgba(78, 204, 163, 0.5);
+}
+
+@keyframes groundAnimation {
+    from { background-position: 800px 0; }
+    to { background-position: 0 0; }
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: repeating-linear-gradient(to right, #4ecca3 0, #4ecca3 50px, transparent 50px, transparent 100px);
+    animation: groundAnimation 1s linear infinite;
+}
+
+.jump {
+    animation: jump 0.5s linear;
+}
+
+@keyframes jump {
+    0% { bottom: 0; }
+    50% { bottom: 150px; }
+    100% { bottom: 0; }
+}
